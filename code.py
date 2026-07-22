@@ -52,8 +52,7 @@ while i == True:
         "grey": 1,
     }
     print("Welcome to the resistor calculator!")
-    slct = input("How many stripes does your resistor have?: ")
-    slct = int
+    slct = int(input("How many stripes does your resistor have?: "))
     if slct == 3:
         first_color = input("What is the color of the first stripe?: ")
         while first_color not in color_digits:
@@ -73,7 +72,7 @@ while i == True:
         third_st = color_multipliers[third_color]
         res_secon = res_first * third_st
         print(f"The resistor has {res_secon} ohms")
-    if slct == 4:
+    elif slct == 4:
         first_color = input("What is the color of the first stripe?: ")
         while first_color not in color_digits:
             print("ERROR: No color found")
@@ -103,7 +102,7 @@ while i == True:
         print(
             f"The resistor has {res_secon} ohms, it can vary to ±{res_calculated_percent} resulting in +{res_third_plus} and -{res_third_minus}"
         )
-    if slct == 5:
+    elif slct == 5:
         first_color = input("What is the color of the first stripe?: ")
         while first_color not in color_digits:
             print("ERROR: No color found")
@@ -138,7 +137,7 @@ while i == True:
         print(
             f"The resistor has {res_secon} ohms, it can vary to ±{res_calculated_percent} resulting in +{res_third_plus} and -{res_third_minus}"
         )
-    if slct == 6:
+    elif slct == 6:
         first_color = input("What is the color of the first stripe?: ")
         while first_color not in color_digits:
             print("ERROR: No color found")
@@ -185,3 +184,4 @@ while i == True:
         )
     else:
         print("ERROR: No Resistor stripes amount found")
+        continue
