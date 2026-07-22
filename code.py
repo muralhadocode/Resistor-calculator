@@ -60,29 +60,41 @@ while i == True:
             first_color = input("What is the color of the first stripe?: ")
         first_st = color_digits[first_color]
         secon_color = input("What is the color of the second stripe?: ")
-        if secon_color not in color_digits:
+        while secon_color not in color_digits:
             print("ERROR: No color found")
             secon_color = input("What is the color of the second stripe?: ")
         secon_st = color_digits[secon_color]
         res_first = float(first_st + secon_st)
         third_color = input("What is the color of the third stripe?: ")
-        if third_color not in color_multipliers:
+        while third_color not in color_multipliers:
             print("ERROR: No color found")
             third_color = input("What is the color of the third stripe?: ")
         third_st = color_multipliers[third_color]
         res_secon = res_first * third_st
         print(f"The resistor has {res_secon} ohms")
     if slct == 4:
-        first_st = color_digits.get(input("What is the color of the first stripe?: "))
-        secon_st = color_digits.get(input("What is the color of the second stripe?: "))
+        first_color = input("What is the color of the first stripe?: ")
+        while first_color not in color_digits:
+            print("ERROR: No color found")
+            first_color = input("What is the color of the first stripe?: ")
+        first_st = color_digits[first_color]
+        secon_color = input("What is the color of the second stripe?: ")
+        while secon_color not in color_digits:
+            print("ERROR: No color found")
+            secon_color = input("Wha is the color of the second stripe?: ")
+        secon_st = color_digits[secon_color]
         res_first = float(first_st + secon_st)
-        third_st = color_multipliers.get(
-            input("What is the color of the third stripe?: ")
-        )
+        third_color = input("What is the color of the third stripe?: ")
+        while third_color not in color_multipliers:
+            print("ERROR: No color found")
+            third_color = input("What is the color of the third stripe?: ")
+        third_st = color_multipliers[third_color]
         res_secon = res_first * third_st
-        fourt_st = color_tolerance.get(
-            input("What is the color of the fourth stripe?: ")
-        )
+        fourt_color = input("What is the color of the fourth stripe?: ")
+        while fourt_color not in color_tolerance:
+            print("ERROR: No color found")
+            fourt_color = input("What is the color of the fourth stripe?: ")
+        fourt_st = color_tolerance[fourt_color]
         res_percent = res_secon / 100
         res_calculated_percent = res_percent * fourt_st
         res_third_plus = res_secon + res_calculated_percent
@@ -91,15 +103,21 @@ while i == True:
             f"The resistor has {res_secon} ohms, it can vary to ±{res_calculated_percent} resulting in +{res_third_plus} and -{res_third_minus}"
         )
     if slct == 5:
-        first_st = color_digits.get(input("What is the color of the first stripe?: "))
-        secon_st = color_digits.get(input("What is the color of the second stripe?: "))
-        third_st = color_digits.get(input("What is the color of the third stripe?: "))
+        first_color = color_digits.get(
+            input("What is the color of the first stripe?: ")
+        )
+        secon_color = color_digits.get(
+            input("What is the color of the second stripe?: ")
+        )
+        third_color = color_digits.get(
+            input("What is the color of the third stripe?: ")
+        )
         res_first = float(first_st + secon_st + third_st)
-        fourt_st = color_multipliers.get(
+        fourt_color = color_multipliers.get(
             input("What is the color of the fourth stripe?: ")
         )
         res_secon = res_first * fourt_st
-        fifth_st = color_tolerance.get(
+        fifth_color = color_tolerance.get(
             input("What is the color of the fifth stripe?: ")
         )
         res_percent = res_secon / 100
@@ -110,22 +128,28 @@ while i == True:
             f"The resistor has {res_secon} ohms, it can vary to ±{res_calculated_percent} resulting in +{res_third_plus} and -{res_third_minus}"
         )
     if slct == 6:
-        first_st = color_digits.get(input("What is the color of the first stripe?: "))
-        secon_st = color_digits.get(input("What is the color of the second stripe?: "))
-        third_st = color_digits.get(input("What is the color of the third stripe?: "))
+        first_color = color_digits.get(
+            input("What is the color of the first stripe?: ")
+        )
+        secon_color = color_digits.get(
+            input("What is the color of the second stripe?: ")
+        )
+        third_color = color_digits.get(
+            input("What is the color of the third stripe?: ")
+        )
         res_first = float(first_st + secon_st + third_st)
-        fourt_st = color_multipliers.get(
+        fourt_color = color_multipliers.get(
             input("What is the color of the fourth stripe?: ")
         )
         res_secon = res_first * fourt_st
-        fifth_st = color_tolerance.get(
+        fifth_color = color_tolerance.get(
             input("What is the color of the fifth stripe?: ")
         )
         res_percent = res_secon / 100
         res_calculated_percent = res_percent * fifth_st
         res_third_plus = res_secon - res_calculated_percent
         res_third_minus = res_secon + res_calculated_percent
-        sixth_st = color_coefficient.get(
+        sixth_color = color_coefficient.get(
             input("What is the color of the sixth stripe?")
         )
         temp_init = float(input("What is the temperature?: "))
