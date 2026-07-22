@@ -39,6 +39,18 @@ while i == True:
         "gold": 5,
         "silver": 10,
     }
+    color_coefficient = {
+        "black": 250,
+        "brown": 100,
+        "red": 50,
+        "orange": 15,
+        "yellow": 25,
+        "green": 20,
+        "blue": 10,
+        "violet": 5,
+        "purple": 5,
+        "grey": 1,
+    }
     print("Welcome to the resistor calculator!")
     slct = int(input("How many stripes does your resistor have?: "))
     if slct == 3:
@@ -63,8 +75,8 @@ while i == True:
         )
         res_percent = res_secon / 100
         res_calculated_percent = res_percent * fourt_st
-        res_third_plus = res_secon - res_calculated_percent
-        res_third_minus = res_secon + res_calculated_percent
+        res_third_plus = res_secon + res_calculated_percent
+        res_third_minus = res_secon - res_calculated_percent
         print(
             f"The resistor has {res_secon} ohms, it can vary to ±{res_calculated_percent} resulting in +{res_third_plus} and -{res_third_minus}"
         )
@@ -82,8 +94,35 @@ while i == True:
         )
         res_percent = res_secon / 100
         res_calculated_percent = res_percent * fifth_st
-        res_third_plus = res_secon - res_calculated_percent
-        res_third_minus = res_secon + res_calculated_percent
+        res_third_plus = res_secon + res_calculated_percent
+        res_third_minus = res_secon - res_calculated_percent
         print(
             f"The resistor has {res_secon} ohms, it can vary to ±{res_calculated_percent} resulting in +{res_third_plus} and -{res_third_minus}"
+        )
+    if slct == 6:
+        first_st = color_digits.get(input("What is the color of the first stripe?: "))
+        secon_st = color_digits.get(input("What is the color of the second stripe?: "))
+        third_st = color_digits.get(input("What is the color of the third stripe?: "))
+        res_first = float(first_st + secon_st + third_st)
+        fourt_st = color_multipliers.get(
+            input("What is the color of the fourth stripe?: ")
+        )
+        res_secon = res_first * fourt_st
+        fifth_st = color_tolerance.get(
+            input("What is the color of the fifth stripe?: ")
+        )
+        res_percent = res_secon / 100
+        res_calculated_percent = res_percent * fifth_st
+        res_third_plus = res_secon - res_calculated_percent
+        res_third_minus = res_secon + res_calculated_percent
+        sixth_st = color_coefficient.get(
+            input("What is the color of the sixth stripe?")
+        )
+        temp_init = float(input("What is the temperature?: "))
+        temp_coef = temp_init - 25
+        res_fort = res_secon * sixth_st * temp_coef * 10**-6
+        res_fift_minus = res_secon + res_fort - res_calculated_percent
+        res_fift_plus = res_secon + res_fort - res_calculated_percent
+        print(
+            f"The resistor has {res_secon} ohms, it can vary to ±{res_calculated_percent} ohms resulting in +{res_third_plus}ohms and -{res_third_minus} ohms, and it can vary {res_fort} ohms with the temperature coefficient and it can get to (with tolerance +) {res_fift_minus} ohms and (with tolerance -) {res_fift_plus}"
         )
