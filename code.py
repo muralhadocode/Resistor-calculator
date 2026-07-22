@@ -55,11 +55,32 @@ while i == True:
     slct = int(input("How many stripes does your resistor have?: "))
     if slct == 3:
         first_st = color_digits.get(input("What is the color of the first stripe?: "))
+        while first_st not in color_digits:
+            print("ERROR: No color found")
+            first_st = color_digits.get(
+                input("What is the color of the first stripe?: ")
+            )
+        if first_st in color_digits:
+            continue
         secon_st = color_digits.get(input("What is the color of the second stripe?: "))
+        if secon_st not in color_digits:
+            print("ERROR: No color found")
+            secon_st = color_digits.get(
+                input("What is the color of the second stripe?: ")
+            )
+        if secon_st in color_digits:
+            continue
         res_first = float(first_st + secon_st)
         third_st = color_multipliers.get(
             input("What is the color of the third stripe?: ")
         )
+        if third_st not in color_multipliers:
+            print("ERROR: No color found")
+            third_st = color_multipliers.get(
+                input("What is the color of the third stripe?: ")
+            )
+        if third_st in color_multipliers:
+            continue
         res_secon = res_first * third_st
         print(f"The resistor has {res_secon} ohms")
     if slct == 4:
@@ -126,3 +147,6 @@ while i == True:
         print(
             f"The resistor has {res_secon} ohms, it can vary to ±{res_calculated_percent} ohms resulting in +{res_third_plus}ohms and -{res_third_minus} ohms, and it can vary {res_fort} ohms with the temperature coefficient and it can get to (with tolerance +) {res_fift_minus} ohms and (with tolerance -) {res_fift_plus}"
         )
+    else:
+        print("ERROR: No Resistor stripes amount found")
+        continue
