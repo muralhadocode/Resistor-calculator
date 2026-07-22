@@ -54,33 +54,22 @@ while i == True:
     print("Welcome to the resistor calculator!")
     slct = int(input("How many stripes does your resistor have?: "))
     if slct == 3:
-        first_st = color_digits.get(input("What is the color of the first stripe?: "))
-        while first_st not in color_digits:
+        first_color = input("What is the color of the first stripe?: ")
+        while first_color not in color_digits:
             print("ERROR: No color found")
-            first_st = color_digits.get(
-                input("What is the color of the first stripe?: ")
-            )
-        if first_st in color_digits:
-            continue
-        secon_st = color_digits.get(input("What is the color of the second stripe?: "))
-        if secon_st not in color_digits:
+            first_color = input("What is the color of the first stripe?: ")
+        first_st = color_digits[first_color]
+        secon_color = input("What is the color of the second stripe?: ")
+        if secon_color not in color_digits:
             print("ERROR: No color found")
-            secon_st = color_digits.get(
-                input("What is the color of the second stripe?: ")
-            )
-        if secon_st in color_digits:
-            continue
+            secon_color = input("What is the color of the second stripe?: ")
+        secon_st = color_digits[secon_color]
         res_first = float(first_st + secon_st)
-        third_st = color_multipliers.get(
-            input("What is the color of the third stripe?: ")
-        )
-        if third_st not in color_multipliers:
+        third_color = input("What is the color of the third stripe?: ")
+        if third_color not in color_multipliers:
             print("ERROR: No color found")
-            third_st = color_multipliers.get(
-                input("What is the color of the third stripe?: ")
-            )
-        if third_st in color_multipliers:
-            continue
+            third_color = input("What is the color of the third stripe?: ")
+        third_st = color_multipliers[third_color]
         res_secon = res_first * third_st
         print(f"The resistor has {res_secon} ohms")
     if slct == 4:
