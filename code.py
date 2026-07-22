@@ -52,7 +52,8 @@ while i == True:
         "grey": 1,
     }
     print("Welcome to the resistor calculator!")
-    slct = int(input("How many stripes does your resistor have?: "))
+    slct = input("How many stripes does your resistor have?: ")
+    slct = int
     if slct == 3:
         first_color = input("What is the color of the first stripe?: ")
         while first_color not in color_digits:
@@ -184,4 +185,3 @@ while i == True:
         )
     else:
         print("ERROR: No Resistor stripes amount found")
-        continue
